@@ -1,0 +1,12 @@
+[package]
+name = "beatrix-macro"
+version = "0.1.0"
+authors = ["Anit Nilay <anit.nilay20@gmail.com>"]
+edition = "2018"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "1.0"
+quote = "1.0"
