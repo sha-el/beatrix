@@ -1,5 +1,5 @@
 [package]
-name = "beatrix-macro"
+name = "beatrix_macro"
 version = "0.1.0"
 authors = ["Anit Nilay <anit.nilay20@gmail.com>"]
 edition = "2018"
@@ -10,3 +10,7 @@ proc-macro = true
 [dependencies]
 syn = "1.0"
 quote = "1.0"
+
+[dev-dependencies]
+beatrix_core = { path="../beatrix_core", version = "0.1.0" }
+

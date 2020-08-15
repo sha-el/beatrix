@@ -1,0 +1,14 @@
+[package]
+name = "beatrix_core"
+version = "0.1.0"
+authors = ["Anit Nilay <anit.nilay20@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+mongodb = "1.0.0"
+serde = "1.0.114"
+async-trait = "0.1.36"
+thiserror = "1.0"
+futures = "0.3"
