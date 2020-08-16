@@ -32,13 +32,13 @@ pub fn impl_mongo(ast: &syn::DeriveInput) -> TokenStream {
                 format!("{}", #entity_name).to_lowercase()
             }
         }
-        impl beatrix_core::mongo::MongoModel for #struct_name {
+        impl beatrix::mongo::MongoModel for #struct_name {
             const COLLECTION_NAME: &'static str = #entity_name;
-            fn set_id(&mut self, id: beatrix_core::mongodb::bson::oid::ObjectId) {
+            fn set_id(&mut self, id: beatrix::mongodb::bson::oid::ObjectId) {
                 self.id = Some(id);
             }
 
-            fn id(&self) -> Option<beatrix_core::mongodb::bson::oid::ObjectId> {
+            fn id(&self) -> Option<beatrix::mongodb::bson::oid::ObjectId> {
                 self.id.clone()
             }
         }

@@ -12,3 +12,8 @@ serde = "1.0.114"
 async-trait = "0.1.36"
 thiserror = "1.0"
 futures = "0.3"
+
+[features]
+default = ["tokio-runtime"]
+tokio-runtime = ["mongodb/tokio-runtime"]
+async-std-runtime = ["mongodb/async-std-runtime"]
