@@ -5,7 +5,6 @@ use beatrix_core::{
 use beatrix_macro::MongoModel;
 use futures::stream::StreamExt;
 use serde::{Deserialize, Serialize};
-use serial_test::serial;
 
 mod factory;
 use factory::mongo::{db, setup, Customer};
@@ -56,7 +55,6 @@ pub async fn test_collection() {
 }
 
 #[tokio::test]
-#[serial]
 pub async fn test_save() {
     setup().await;
 
@@ -76,7 +74,6 @@ pub async fn test_save() {
 }
 
 #[tokio::test]
-#[serial]
 pub async fn test_find() {
     setup().await;
 
@@ -98,7 +95,6 @@ pub async fn test_find() {
 }
 
 #[tokio::test]
-#[serial]
 pub async fn test_filter_with_no_params() {
     setup().await;
 

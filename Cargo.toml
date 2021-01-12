@@ -12,9 +12,8 @@ beatrix_core = { path="beatrix_core", version = "0.1.0" }
 
 [dev-dependencies]
 serde = "1"
-tokio = "*"
+tokio = "0.2.18"
 dotenv = "*"
-serial_test = "*"
 futures = "*"
 
 [workspace]
