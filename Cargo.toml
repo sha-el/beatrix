@@ -12,7 +12,7 @@ beatrix_core = { path="beatrix_core", version = "0.1.0" }
 
 [dev-dependencies]
 serde = "1"
-tokio = "0.2.18"
+tokio = { version = "1.11.0", features = ["full"] }
 dotenv = "*"
 futures = "*"
 
@@ -21,3 +21,17 @@ members = [
     "beatrix_macro",
     "beatrix_core",
 ]
+
+[[test]]
+name = "mongo"
+path = "tests/mongo.rs"
+# required-features = [ "mongo" ]
+
+[[test]]
+name = "mysql-querybuilder"
+path = "tests/rdms/mysql/query_builder.rs"
+# required-features = [ "any" ]
+
+[[test]]
+name = "table-macro"
+path = "tests/rdms/mysql/table_macro.rs"
