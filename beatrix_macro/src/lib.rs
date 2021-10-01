@@ -1,18 +1,21 @@
 extern crate proc_macro;
 use proc_macro::TokenStream;
-use syn::DeriveInput;
+use syn::{DeriveInput, parse_macro_input};
 
+#[cfg(feature = "mongo")]
 mod mongo;
+
+#[cfg(feature = "postgres")]
 mod relational;
 
+#[cfg(feature = "mongo")]
 #[proc_macro_derive(MongoModel, attributes(entity))]
 pub fn derive_mongo_model(input: TokenStream) -> TokenStream {
-    let ast = syn::parse(input).unwrap();
-    mongo::impl_mongo(&ast)
+    mongo::impl_mongo(&parse_macro_input!(input as DeriveInput))
 }
 
-#[proc_macro_derive(RelationalModel, attributes(table_name))]
+#[cfg(feature = "postgres")]
+#[proc_macro_derive(RelationalModel, attributes(table_name, name))]
 pub fn derive_relational_model(input: TokenStream) -> TokenStream {
-    let ast: DeriveInput = syn::parse(input.clone()).unwrap();
-    relational::impl_relational_model(&ast)
+    relational::impl_relational_model(&parse_macro_input!(input as DeriveInput)).into()
 }
